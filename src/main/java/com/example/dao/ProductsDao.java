@@ -13,8 +13,11 @@ public class ProductsDao implements IProductsDao {
 
     @Override
     public ProductsModel getProductsModel() {
+        int total = jdbcTemplate.queryForObject("SELECT COUNT(*) FROM products", Integer.class);
+        System.out.println("total : " + total);
+
         return jdbcTemplate.queryForObject("select * from products", (rs, rowNum) -> new ProductsModel());
-//        int total = jdbcTemplate.queryForObject("SELECT COUNT(*) FROM employee", Integer.class);
+//
 //        return null;
     }
 }

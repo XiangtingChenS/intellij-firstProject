@@ -25,7 +25,7 @@ public class MyProjectApplication {
 
     @GetMapping("/hello")
     public String sayHello(@RequestParam(value = "myName", defaultValue = "World") String name) {
-//        System.out.println(productsService.getProducts());
+        System.out.println(productsService.getProducts());
         return String.format("Hello, %s!", name);
     }
 
