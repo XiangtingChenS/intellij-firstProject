@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
 @RestController
-@ComponentScan
+@ComponentScan(basePackages = {"com.example.service", "com.example.dao"})
 public class MyProjectApplication {
 
     public static void main(String[] args) {
@@ -25,8 +25,6 @@ public class MyProjectApplication {
 
     @GetMapping("/hello")
     public String sayHello(@RequestParam(value = "myName", defaultValue = "World") String name) {
-        //test
-
 //        System.out.println(productsService.getProducts());
         return String.format("Hello, %s!", name);
     }

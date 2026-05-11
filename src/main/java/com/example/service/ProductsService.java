@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.Collections;
 import java.util.List;
 
-
+@Service
 public class ProductsService implements IProductsService {
     @Autowired
     private IProductsDao productsDao;
