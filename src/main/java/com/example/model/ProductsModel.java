@@ -9,6 +9,13 @@ public class ProductsModel {
     private String description;
     private Double price;
 
+    public ProductsModel(int id, String name, String description, double price) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+    }
+
     public Integer getId() {
         return id;
     }

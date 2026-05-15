@@ -1,9 +1,10 @@
 package com.example.dao;
 
 import com.example.model.ProductsModel;
-import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 
 public interface IProductsDao {
-    ProductsModel getProductsModel();
+    List<ProductsModel> getProductsModel();
 }

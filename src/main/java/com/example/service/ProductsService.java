@@ -5,7 +5,6 @@ import com.example.model.ProductsModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -15,6 +14,6 @@ public class ProductsService implements IProductsService {
 
     @Override
     public List<ProductsModel> getProducts() {
-        return Collections.singletonList(productsDao.getProductsModel());
+        return productsDao.getProductsModel();
     }
 }

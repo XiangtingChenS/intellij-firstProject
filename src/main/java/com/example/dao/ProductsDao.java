@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public class ProductsDao implements IProductsDao {
 
@@ -12,12 +14,19 @@ public class ProductsDao implements IProductsDao {
     private JdbcTemplate jdbcTemplate;
 
     @Override
-    public ProductsModel getProductsModel() {
+    public List<ProductsModel> getProductsModel() {
         int total = jdbcTemplate.queryForObject("SELECT COUNT(*) FROM products", Integer.class);
         System.out.println("total : " + total);
 
-        return jdbcTemplate.queryForObject("select * from products", (rs, rowNum) -> new ProductsModel());
-//
-//        return null;
+
+        String sql = "SELECT * FROM products";
+        return jdbcTemplate.query(sql, (rs, rowNum) -> new ProductsModel(
+                rs.getInt("id"),
+                rs.getString("name"),
+                rs.getString("description"),
+                rs.getDouble("price")
+        ));
+
+
     }
 }
